@@ -1,0 +1,45 @@
+/* Add this to your "forms.css" file or create a new CSS file */
+
+.formss {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .formss h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .formss label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .formss input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+  
+  .formss input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .formss input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Optional: Add some styles for file input */
+  .formss input[type="file"] {
+    margin-top: 8px;
+  }
+  
+  /* Optional: Add more styling based on your preferences */
+  

@@ -1,0 +1,32 @@
+.formss{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto; 
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: gray;
+    margin-top: 50px;
+  }
+  
+  .formss label {
+    margin-bottom: 8px;
+  }
+  
+  .formss input {
+    padding: 8px;
+    margin-bottom: 16px;
+  }
+  
+  .formss input[type="submit"] {
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+  }
+  
