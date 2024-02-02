@@ -10,7 +10,8 @@ import {
   MenuItem,
   Select,
 } from "@mui/material";
-import { addUser } from "../Service/api";
+import { useDispatch } from "react-redux";
+import { addNewTodo } from "../Redux/action";
 
 
 const Container = styled(FormGroup)`
@@ -22,11 +23,13 @@ const Container = styled(FormGroup)`
 `;
 
 const AddUser = () => {
+  const dispatch = useDispatch()
   const initialValue = {
     title: "",
     description: "",
     dueDate: "",
     priority: 1, //setting 1 as the initial priority
+    completed: false,
   };
   const [user, setUser] = useState(initialValue);
   console.log(user);
@@ -38,7 +41,8 @@ const AddUser = () => {
 
   const addUserDetails = async() => {
     console.log(user, "User-Form-Data");
-    await addUser(user);
+   dispatch(addNewTodo(user));
+    setUser(initialValue);
   };
 
   return (
