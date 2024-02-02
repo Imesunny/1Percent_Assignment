@@ -6,13 +6,18 @@ import Todos from "../Components/Todos";
 const HomePage = () => {
   return (
     <>
-      <h1>Welcome to the Home Page!</h1>
-      <div>
-        <AddUser />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <h1>Welcome to the Home Page!</h1>
       </div>
-      <div style={{ margin: "5% 0 0 25%" }}>
-        <Todos />
-      </div>
+
+      <AddUser />
+      <Todos />
     </>
   );
 };

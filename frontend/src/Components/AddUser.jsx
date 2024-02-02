@@ -11,7 +11,7 @@ import {
   Select,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { addNewTodo } from "../Redux/action";
+import { addNewTodo, getAllTodos } from "../Redux/action";
 
 
 const Container = styled(FormGroup)`
@@ -41,13 +41,14 @@ const AddUser = () => {
 
   const addUserDetails = async() => {
     console.log(user, "User-Form-Data");
-   dispatch(addNewTodo(user));
+   await dispatch(addNewTodo(user));
+   await dispatch(getAllTodos());
     setUser(initialValue);
   };
 
   return (
     <Container>
-      <Typography variant="h4">Add User</Typography>
+      <Typography variant="h4">Add Task as Desired</Typography>
       <FormControl>
         <InputLabel>Task Title</InputLabel>
         <Input

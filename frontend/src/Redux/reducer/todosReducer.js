@@ -1,4 +1,10 @@
-import { ADDNEW_TODO, GETALL_TODO, TOGGLE_TODO } from "../action/type";
+import {
+  ADDNEW_TODO,
+  DELETE_TODO,
+  GETALL_TODO,
+  TOGGLE_TODO,
+  UPDATE_TODO,
+} from "../action/type";
 
 export const todosReducers = (state = [], action) => {
   switch (action.type) {
@@ -10,6 +16,16 @@ export const todosReducers = (state = [], action) => {
       return state.map((todo) =>
         todo._id === action.payload._id ? { ...todo, done: !todo.done } : todo
       );
+
+    case UPDATE_TODO:
+      return state.map((todo) =>
+        todo._id === action.payload.todo._id
+          ? { ...todo, ...action.payload.todo }
+          : todo
+      );
+
+    case DELETE_TODO:
+      return state.filter((todo) => todo._id !== action.payload._id);
     default:
       return state;
   }
