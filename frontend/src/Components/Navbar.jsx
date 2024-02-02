@@ -1,11 +1,11 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import '../Modules/Navbar.css'
+import React from "react";
+import { NavLink } from "react-router-dom";
+import "../Modules/Navbar.css";
 
 export const Navbar = () => {
   return (
     <div>
-        <nav>
+      <nav>
         <div className="container">
           <NavLink to="/login" className="navele">
             Login
@@ -14,11 +14,12 @@ export const Navbar = () => {
           <NavLink to="/" className="navele">
             SignUp
           </NavLink>
+          
           <NavLink to="/home" className="navele">
             Home
           </NavLink>
         </div>
       </nav>
     </div>
-  )
-}
+  );
+};
