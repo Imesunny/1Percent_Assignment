@@ -10,13 +10,13 @@ const toggleRouter = require("./routes/toggle.routes");
 
 app.use(
   cors({
-    origin: "*",
+    origin: "http://localhost:3000",
   })
 );
 
 app.use(express.json());
 
-const PORT = parseInt(process.env.PORT) || 8080;
+const PORT = parseInt(process.env.PORT);
 
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the app!" });
