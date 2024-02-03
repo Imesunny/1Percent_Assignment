@@ -15,7 +15,9 @@ app.use(
 );
 
 app.use(express.json());
-const PORT = parseInt(process.env.PORT);
+
+const PORT = parseInt(process.env.PORT) || 8080;
+
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the app!" });
 });

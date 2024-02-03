@@ -8,11 +8,15 @@ const UserModel = require("../models/user.model");
 userRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
-  const is_User = await UserModel.findOne({ email: email });
+  try {
+    const is_User = await UserModel.findOne({ email });
 
-  if (is_User) {
-    const hashed_password = is_User.password;
-    bcrypt.compare(password, hashed_password, async (err, result) => {
+    if (is_User) {
+      const hashed_password = is_User.password;
+
+      // Use bcrypt.compareSync for synchronous comparison
+      const result = bcrypt.compareSync(password, hashed_password);
+
       if (result) {
         const token = jwt.sign(
           {
@@ -21,15 +25,18 @@ userRouter.post("/login", async (req, res) => {
           "heyDev"
         );
 
-        return res.json({ message: "Login Success", token: token });
+        return res.json({ message: "Login Success", token });
       } else {
-        return res.json({
-          message: "Invalid crediantials, Try Again!!",
+        return res.status(401).json({
+          message: "Invalid credentials, Try Again!!",
         });
       }
-    });
-  } else {
-    return res.json({ message: "User not found!, Try Signing in again" });
+    } else {
+      return res.status(404).json({ message: "User not found!, Try Signing in again" });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: "Internal server error" });
   }
 });
 
