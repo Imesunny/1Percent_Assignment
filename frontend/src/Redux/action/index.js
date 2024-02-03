@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ADDNEW_TODO, DELETE_TODO, GETALL_TODO, TOGGLE_TAB, TOGGLE_TODO, UPDATE_TODO } from "./type";
 
-const API_URL = "http://localhost:8080";
+const API_URL = `https://dark-pear-sheep-toga.cyclic.app`;
 
 export const addNewTodo = (data) => async (dispatch) => {
   try {

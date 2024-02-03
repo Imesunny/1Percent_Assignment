@@ -9,8 +9,8 @@ import { ToastContainer } from "react-toastify";
 
 function App() {
   // const notify = () => toast("Wow so easy!");
-  axios.defaults.baseURL = `http://localhost:8080/`;
-  // axios.defaults.baseURL = `https://important-sock-pike.cyclic.app/s`;
+  // axios.defaults.baseURL = `http://localhost:8080/`;
+  axios.defaults.baseURL = `https://dark-pear-sheep-toga.cyclic.app`;
   return (
     <>
      <ToastContainer />
