@@ -6,7 +6,6 @@ import {
   toggleTodo,
   updateTodo,
 } from "../Redux/action";
-import { format, parseISO } from "date-fns";
 
 const Todo = ({ todo }) => {
   const dispatch = useDispatch();
@@ -14,9 +13,8 @@ const Todo = ({ todo }) => {
   const [editing, setEditing] = useState(false);
   const [editedTitle, setEditedTitle] = useState(todo.title);
   const [editedDescription, setEditedDescription] = useState(todo.description);
-  const [editedDueDate, setEditedDueDate] = useState(todo.dueDate || '');
+  const [editedDueDate, setEditedDueDate] = useState(todo.dueDate || "");
   const [editedPriority, setEditedPriority] = useState(todo.priority);
-  
 
   const handleToggleTodo = async () => {
     await dispatch(toggleTodo(todo._id));
@@ -27,11 +25,13 @@ const Todo = ({ todo }) => {
     e.preventDefault();
 
     setEditing((prevState) => !prevState);
+
+    const formattedDueDate = new Date(editedDueDate).toISOString();
     const updateResult = await dispatch(
       updateTodo(todo._id, {
         title: editedTitle,
         description: editedDescription,
-        dueDate: editedDueDate,
+        dueDate: formattedDueDate,
         priority: editedPriority,
       })
     );
@@ -86,7 +86,6 @@ const Todo = ({ todo }) => {
           value={editedDueDate.split("T")[0]}
           onChange={(e) => setEditedDueDate(e.target.value + "T00:00:00.000Z")}
         />
-
 
         <input
           type="number"

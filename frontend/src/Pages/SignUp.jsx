@@ -39,7 +39,7 @@ const SignUp = () => {
     <>
       <div>
         <form className="formss" onSubmit={handleFormSubmit}>
-          <h2>Enter the details below:</h2>
+          <h2>User Signup</h2>
           <label>Enter User Name: </label>
           <input
             type="text"
